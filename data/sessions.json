@@ -1,0 +1,222 @@
+[
+  {
+    "id": "1",
+    "title": "React Server Components Deep Dive",
+    "description": "Explore the architecture and benefits of React Server Components, and learn how to implement them in your Next.js applications.",
+    "speaker": "Sarah Chen",
+    "track": "Frontend",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "room": "Hall A",
+    "level": "Advanced"
+  },
+  {
+    "id": "2",
+    "title": "Building Scalable APIs with Node.js",
+    "description": "Learn best practices for designing and implementing scalable RESTful and GraphQL APIs using Node.js and Express.",
+    "speaker": "Michael Rodriguez",
+    "track": "Backend",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "room": "Hall B",
+    "level": "Intermediate"
+  },
+  {
+    "id": "3",
+    "title": "Kubernetes for Production: Best Practices",
+    "description": "Discover production-ready Kubernetes patterns, including monitoring, scaling, and security configurations.",
+    "speaker": "Emily Watson",
+    "track": "DevOps",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "room": "Hall C",
+    "level": "Advanced"
+  },
+  {
+    "id": "4",
+    "title": "Introduction to Machine Learning with TensorFlow",
+    "description": "Get started with machine learning fundamentals and build your first neural network using TensorFlow.",
+    "speaker": "David Kim",
+    "track": "AI",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "room": "Hall D",
+    "level": "Beginner"
+  },
+  {
+    "id": "5",
+    "title": "Advanced TypeScript Patterns",
+    "description": "Master advanced TypeScript features including conditional types, mapped types, and utility types for better type safety.",
+    "speaker": "Jessica Park",
+    "track": "Frontend",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "room": "Hall A",
+    "level": "Advanced"
+  },
+  {
+    "id": "6",
+    "title": "Microservices Architecture Patterns",
+    "description": "Learn how to design, implement, and deploy microservices using modern architectural patterns and tools.",
+    "speaker": "Robert Chang",
+    "track": "Backend",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "room": "Hall B",
+    "level": "Intermediate"
+  },
+  {
+    "id": "7",
+    "title": "CI/CD Pipeline Automation",
+    "description": "Automate your deployment workflow with GitHub Actions, Jenkins, and modern CI/CD best practices.",
+    "speaker": "Amanda Liu",
+    "track": "DevOps",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "room": "Hall C",
+    "level": "Intermediate"
+  },
+  {
+    "id": "8",
+    "title": "Natural Language Processing with Python",
+    "description": "Build NLP applications using spaCy, NLTK, and transformers for text analysis and generation.",
+    "speaker": "James Anderson",
+    "track": "AI",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "room": "Hall D",
+    "level": "Intermediate"
+  },
+  {
+    "id": "9",
+    "title": "State Management in Modern React",
+    "description": "Compare different state management solutions including Context API, Zustand, and Jotai for React applications.",
+    "speaker": "Lisa Martinez",
+    "track": "Frontend",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "room": "Hall A",
+    "level": "Intermediate"
+  },
+  {
+    "id": "10",
+    "title": "Database Performance Optimization",
+    "description": "Optimize PostgreSQL and MongoDB queries, indexes, and schemas for maximum performance.",
+    "speaker": "Thomas Brown",
+    "track": "Backend",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "room": "Hall B",
+    "level": "Advanced"
+  },
+  {
+    "id": "11",
+    "title": "Infrastructure as Code with Terraform",
+    "description": "Manage cloud infrastructure using Terraform for AWS, Azure, and Google Cloud Platform.",
+    "speaker": "Rachel Green",
+    "track": "DevOps",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "room": "Hall C",
+    "level": "Intermediate"
+  },
+  {
+    "id": "12",
+    "title": "Computer Vision Applications",
+    "description": "Build real-world computer vision applications using OpenCV and deep learning models.",
+    "speaker": "Kevin Patel",
+    "track": "AI",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "room": "Hall D",
+    "level": "Advanced"
+  },
+  {
+    "id": "13",
+    "title": "Web Performance Optimization",
+    "description": "Techniques for improving web performance including code splitting, lazy loading, and caching strategies.",
+    "speaker": "Monica Davis",
+    "track": "Frontend",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "room": "Hall A",
+    "level": "Intermediate"
+  },
+  {
+    "id": "14",
+    "title": "Event-Driven Architecture",
+    "description": "Design scalable systems using event-driven patterns with message queues and event streaming.",
+    "speaker": "Daniel Wilson",
+    "track": "Backend",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "room": "Hall B",
+    "level": "Advanced"
+  },
+  {
+    "id": "15",
+    "title": "Monitoring and Observability",
+    "description": "Implement comprehensive monitoring solutions using Prometheus, Grafana, and distributed tracing.",
+    "speaker": "Sophia Taylor",
+    "track": "DevOps",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "room": "Hall C",
+    "level": "Intermediate"
+  },
+  {
+    "id": "16",
+    "title": "Large Language Models in Production",
+    "description": "Deploy and scale LLMs in production environments with optimization techniques and cost management.",
+    "speaker": "Christopher Lee",
+    "track": "AI",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "room": "Hall D",
+    "level": "Advanced"
+  },
+  {
+    "id": "17",
+    "title": "Accessibility in Modern Web Apps",
+    "description": "Create inclusive web applications with WCAG 2.1 compliance and assistive technology support.",
+    "speaker": "Jennifer White",
+    "track": "Frontend",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "room": "Hall A",
+    "level": "Beginner"
+  },
+  {
+    "id": "18",
+    "title": "Serverless Architecture Patterns",
+    "description": "Build scalable applications using AWS Lambda, API Gateway, and serverless best practices.",
+    "speaker": "Ryan Johnson",
+    "track": "Backend",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "room": "Hall B",
+    "level": "Intermediate"
+  },
+  {
+    "id": "19",
+    "title": "Security Best Practices for DevOps",
+    "description": "Implement security scanning, secrets management, and compliance automation in your DevOps pipeline.",
+    "speaker": "Michelle Harris",
+    "track": "DevOps",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "room": "Hall C",
+    "level": "Advanced"
+  },
+  {
+    "id": "20",
+    "title": "Reinforcement Learning Fundamentals",
+    "description": "Introduction to reinforcement learning algorithms and building agents that learn from interaction.",
+    "speaker": "Alexander Martinez",
+    "track": "AI",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "room": "Hall D",
+    "level": "Beginner"
+  }
+]
