@@ -15,10 +15,10 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="text-3xl font-bold tracking-tight">Tech Conference 2024</h1>
-              <p className="text-muted-foreground mt-1">Browse and plan your conference schedule</p>
+              <h2 className="text-muted-foreground mt-1">Browse and plan your conference schedule</h2>
             </div>
             <Button asChild>
-              <Link href="/agenda">
+              <Link aria-label="Go to my agenda" href="/agenda">
                 <Calendar className="mr-2 size-4" />
                 My Agenda
               </Link>

@@ -5,6 +5,7 @@ import type { TrackType } from "@/lib/types"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
 
 interface SessionFiltersProps {
@@ -70,32 +71,54 @@ export function SessionFilters({ onFilterChange }: SessionFiltersProps) {
       <div className="space-y-2">
         <Label>Filter by Track</Label>
         <div className="flex flex-wrap gap-2">
-          {tracks.map((track) => (
-            <Badge
-              key={track}
-              variant={filters.tracks.includes(track) ? "default" : "outline"}
-              className="cursor-pointer hover:bg-primary/90"
-              onClick={() => toggleTrack(track)}
-            >
-              {track}
-            </Badge>
-          ))}
+          {tracks.map((track) => {
+            const isSelected = filters.tracks.includes(track)
+            return (
+              <Badge
+                key={track}
+                variant={isSelected ? "default" : "outline"}
+                asChild
+              >
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleTrack(track)}
+                  aria-pressed={isSelected}
+                  aria-label={`Filter by ${track} track${isSelected ? ", currently selected" : ""}`}
+                  className="cursor-pointer hover:bg-primary/90 hover:text-white rounded-full px-2 py-0.5 h-auto text-xs font-medium"
+                >
+                  {track}
+                </Button>
+              </Badge>
+            )
+          })}
         </div>
       </div>
 
       <div className="space-y-2">
         <Label>Filter by Time</Label>
         <div className="flex flex-wrap gap-2">
-          {timeSlots.map((slot) => (
-            <Badge
-              key={slot.value}
-              variant={filters.timeSlots.includes(slot.value) ? "default" : "outline"}
-              className="cursor-pointer hover:bg-primary/90"
-              onClick={() => toggleTimeSlot(slot.value)}
-            >
-              {slot.label}
-            </Badge>
-          ))}
+          {timeSlots.map((slot) => {
+            const isSelected = filters.timeSlots.includes(slot.value)
+            return (
+              <Badge
+                key={slot.value}
+                variant={isSelected ? "default" : "outline"}
+                asChild
+              >
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleTimeSlot(slot.value)}
+                  aria-pressed={isSelected}
+                  aria-label={`Filter by ${slot.label.toLowerCase()} sessions${isSelected ? ", currently selected" : ""}`}
+                  className="cursor-pointer hover:bg-primary/90 hover:text-white rounded-full px-2 py-0.5 h-auto text-xs font-medium"
+                >
+                  {slot.label}
+                </Button>
+              </Badge>
+            )
+          })}
         </div>
       </div>
     </div>
