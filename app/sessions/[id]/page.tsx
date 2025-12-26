@@ -8,9 +8,33 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { AgendaManager } from "@/components/agenda-manager"
 import { ArrowLeft, Clock, MapPin, Signal, User } from "lucide-react"
+import { Metadata } from "next"
 
 interface PageProps {
   params: Promise<{ id: string }>
+}
+export async function generateStaticParams() {
+  const sessions = sessionsData as Session[]
+  return sessions.map((session) => ({
+    id: session.id,
+  }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params
+  const sessions = sessionsData as Session[]
+  const session = sessions.find((s) => s.id === id)
+
+  if (!session) {
+    return {
+      title: "Session Not Found",
+    }
+  }
+
+  return {
+    title: `${session.title} | Tech Conference 2024`,
+    description: session.description,
+  }
 }
 
 export default async function SessionDetailPage({ params }: PageProps) {
@@ -37,7 +61,6 @@ export default async function SessionDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
           <Button variant="ghost" asChild className="mb-4">
@@ -62,10 +85,8 @@ export default async function SessionDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          {/* Main Info */}
           <div className="lg:col-span-2 space-y-6">
             <Card>
               <CardHeader>
@@ -94,7 +115,6 @@ export default async function SessionDetailPage({ params }: PageProps) {
             </Card>
           </div>
 
-          {/* Sidebar Info */}
           <div className="space-y-6">
             <Card>
               <CardHeader>
