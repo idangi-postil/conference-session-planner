@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect } from "react"
+import { usePersistentState } from "./usePersistentState"
 
 interface AgendaContextType {
   agendaSessionIds: string[]
@@ -16,8 +17,7 @@ const AgendaContext = createContext<AgendaContextType | undefined>(undefined)
 const STORAGE_KEY = "conference-agenda"
 
 export function AgendaProvider({ children }: { children: React.ReactNode }) {
-  const [agendaSessionIds, setAgendaSessionIds] = useState<string[]>([])
-  const [isHydrated, setIsHydrated] = useState(false)
+    const [agendaSessionIds, setAgendaSessionIds, isHydrated] = usePersistentState<string[]>(STORAGE_KEY, [])
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -30,7 +30,6 @@ export function AgendaProvider({ children }: { children: React.ReactNode }) {
         console.error("Failed to parse stored agenda:", error)
       }
     }
-    setIsHydrated(true)
   }, [])
 
   // Save to localStorage whenever agenda changes
