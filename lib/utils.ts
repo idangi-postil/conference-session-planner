@@ -31,14 +31,14 @@ export function detectConflicts(sessions: Session[], agendaIds: string[]): TimeC
   const agendaSessions = sessions.filter((s) => agendaIds.includes(s.id))
   const conflicts: TimeConflict[] = []
 
-  agendaSessions.forEach((session, index) => {
+  agendaSessions.forEach((session) => {
     const conflictsWith: string[] = []
 
-    for (let i = index + 1; i < agendaSessions.length; i++) {
-      if (hasTimeConflict(session, agendaSessions[i])) {
-        conflictsWith.push(agendaSessions[i].id)
+    agendaSessions.forEach((otherSession) => {
+      if (session.id !== otherSession.id && hasTimeConflict(session, otherSession)) {
+        conflictsWith.push(otherSession.id)
       }
-    }
+    })
 
     if (conflictsWith.length > 0) {
       conflicts.push({
