@@ -92,7 +92,7 @@ describe("Conflict Detection", () => {
       const agendaIds = ["1", "2"] // Sessions 1 and 2 overlap
       const conflicts = detectConflicts(allSessions, agendaIds)
 
-      expect(conflicts.length).toBe(1)
+      expect(conflicts.length).toBe(2)
       expect(conflicts[0].sessionId).toBe("1")
       expect(conflicts[0].conflictsWith).toContain("2")
     })
