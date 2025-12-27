@@ -17,12 +17,10 @@ export default function AgendaPage() {
   const sessions = sessionsData as Session[]
   const agendaSessions = sessions.filter((s) => agendaSessionIds.includes(s.id))
 
-  // Sort by start time
   const sortedSessions = [...agendaSessions].sort((a, b) => {
     return a.startTime.localeCompare(b.startTime)
   })
 
-  // Detect conflicts
   const conflicts = detectConflicts(sessions, agendaSessionIds)
   const hasConflicts = conflicts.length > 0
 
@@ -42,7 +40,6 @@ export default function AgendaPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
           <Button variant="ghost" asChild className="mb-4">
@@ -70,7 +67,6 @@ export default function AgendaPage() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {hasConflicts && (
           <div className="mb-6">

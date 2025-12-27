@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Conference Session Planner
 
-## Getting Started
+A Next.js application for browsing conference sessions and managing a personal agenda.
 
-First, run the development server:
+## How to Run the Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3.  **Run tests:**
+    ```bash
+    npm run test
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4.  **Build for production:**
+    ```bash
+    npm run build
+    npm run start
+    ```
 
-## Learn More
+## Architecture Decisions
 
-To learn more about Next.js, take a look at the following resources:
+### Data Loading
+-   **Source:** Session data is currently stored in a local JSON file (`data/sessions.json`).
+-   **Implementation:** The data is imported directly into the pages/components. In a real-world scenario, this would likely be replaced by a fetch call to an API or a database query.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Client vs. Server Components
+-   **`app/page.tsx` (Server Component):** The main landing page is a Server Component. It loads the initial session data on the server, providing better initial page load performance and SEO.
+-   **`components/session-filters.tsx` (Client Component):** This component requires `"use client"` because it manages the interactive state of the filters (search text, track selection, time slots) and communicates updates to the parent list.
+-   **`app/agenda/page.tsx` (Client Component):** The agenda page is a Client Component because it relies heavily on the `useAgenda` hook, which interacts with `localStorage` to persist the user's saved sessions. Since `localStorage` is a browser-only API, this page must run on the client.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### State Management
+-   **Agenda Context:** A React Context (`AgendaContext`) is used to manage the global state of the user's selected sessions.
+-   **Persistence:** The `usePersistentState` hook syncs the agenda state with the browser's `localStorage`, allowing the user's selection to persist across page reloads.
 
-## Deploy on Vercel
+## Trade-offs & Shortcuts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   **No Backend/Database:** To keep the project self-contained and easy to run, I opted for a static JSON file instead of setting up a full database (like PostgreSQL) or a headless CMS. This means data is read-only and cannot be updated dynamically without a code deployment.
+-   **Client-Side Filtering:** Filtering logic is performed entirely on the client. For the current dataset size, this is performant and provides instant feedback. However, for a conference with thousands of sessions, this should be moved to the server (using URL search params) to reduce the JS bundle size and improve performance.
+-   **Local Storage Persistence:** User data (the agenda) is stored in `localStorage`. This is a quick way to add persistence without authentication, but it means data is tied to a specific browser/device and will be lost if the cache is cleared.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+
+With more time, I would implement the following:
+
+1.  **Backend Integration:** Replace the JSON file with a real database (e.g., Vercel Postgres) and create API routes to fetch and filter sessions.
+2.  **User Authentication:** Add authentication (e.g., NextAuth.js) to allow users to log in and save their agenda to the database, enabling cross-device synchronization.
+3.  **URL-Based Filtering:** Refactor the filtering system to store state in the URL query parameters. This would make filtered views shareable and improve the user experience.
+4.  **End-to-End Testing:** Add Playwright or Cypress tests to ensure critical flows (like adding a session to the agenda) work as expected in a real browser environment.
+5.  **Performance Optimization:** Implement virtualization for the session list if the number of sessions grows significantly.
